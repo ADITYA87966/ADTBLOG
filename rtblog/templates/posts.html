@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+{% load static %}
+
+
+
+
+
+  <div class="row">
+    <div class="col s12 m10">
+
+      <h3>{{post.Title}}</h3>
+
+      <p>({{post.Cat.Title}})</p>
+
+      <img src="/media/{{post.Images}}">
+
+      <br>
+
+      <p>
+        {{post.Content |safe}}
+      </p>
+
+    </div>
+
+
+
+
+<!--Categry Work-->
+    <div class="col s12 m2">
+      {% for cat in cats %}
+  <div class="card item" style="margin-left:10px">
+    <div class="container">
+
+         <img src="/media/{{cat.Image}}"alt="" class="responsive-img">
+
+    </div>
+    <div class="card-content">
+
+          <div class="card-title">
+
+         <b>{{cat.Title}}<b>
+      </div>
+      <p>{{cat.Description |truncatewords:15}}</p>
+    </div>
+    <div class="container" ALIGN="center">
+      <a href=""  class="btn bg-primary ">View </a>
+    </div>
+  </div>
+
+  {% endfor %}
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
